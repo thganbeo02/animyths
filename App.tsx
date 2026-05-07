@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
+export function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>AniMyths v0.1</Text>
+      <Text>Env: {process.env.EXPO_PUBLIC_ENV}</Text>
+      <Text>Supabase URL: {process.env.EXPO_PUBLIC_SUPABASE_URL}</Text>
       <StatusBar style="auto" />
     </View>
   );
