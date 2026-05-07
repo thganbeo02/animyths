@@ -1,11 +1,11 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import prettier from 'eslint-config-prettier';
+const js = require('@eslint/js');
+const globals = require('globals');
+const tseslint = require('typescript-eslint');
+const react = require('eslint-plugin-react');
+const reactHooks = require('eslint-plugin-react-hooks');
+const prettier = require('eslint-config-prettier');
 
-export default tseslint.config(
+module.exports = tseslint.config(
   js.configs.recommended,
   ...tseslint.configs.recommended,
   react.configs.flat.recommended,
@@ -30,6 +30,9 @@ export default tseslint.config(
     languageOptions: {
       globals: globals.node,
       sourceType: 'commonjs',
+    },
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
     },
   },
   {
