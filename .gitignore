@@ -40,6 +40,7 @@ yarn-error.*
 # local working materials
 .local-notes/
 docs/private/
+docs/legacy/
 
 # typescript
 *.tsbuildinfo

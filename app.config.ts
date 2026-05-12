@@ -55,7 +55,7 @@ const config: ExpoConfig = {
   extra: {
     env: ENV,
     eas: {
-      // Filled in by eas build:configure later
+      projectId: '0e838a79-b9a1-4fc7-a904-851d11b93f93',
     },
   },
 };
