@@ -4,6 +4,31 @@ All notable public-bound changes to AniMyths are documented here.
 
 This project follows Keep a Changelog formatting and uses pre-release `v0.x.y` versions until public release.
 
+## [2026-05-14] — Design System Foundation + Phase 03 — v0.1.3
+
+### Added
+
+- `docs/public/decisions/ADR-0005-color-token-boundaries.md` — Decision to isolate raw color primitives in `tokens/primitives.ts`, with component-safe tokens in `tokens/colors.ts`. File boundary enforced by convention, not lint yet. Rationale: prevents components from choosing colors by visual resemblance; enables future contrast/theme changes.
+- `src/design-system/tokens/primitives.ts` — Raw color values for token authors.
+- `src/design-system/tokens/motion.ts` — Shared animation timing tokens.
+- `src/design-system/theme.ts` — Plain assembled theme object + `useTheme`.
+
+### Changed
+
+- `src/design-system/tokens/colors.ts` — Full restructure:
+  - Exports `colors` (not `palette`) for component consumption.
+  - Groups: `surface`, `text`, `border`, `state`, `action`, `faction`, `factionSoft`, `rarity`, `rarityGlow`, `variant`, `gradient`.
+  - `satisfies Record<Faction, string>` on faction groups; `satisfies Record<Rarity, string>` on rarity; `satisfies Record<Variant, VariantTreatment>` on variant.
+  - All values composed from `colorPrimitives` — no raw hex literals in `colors.ts`.
+  - `variant` tokens are treatment metadata (sigil, overlayOpacity, staticGradient), not frame colors.
+- `src/design-system/tokens/typography.ts` — Even `fontSize`/`lineHeight`, complete doc-aligned scale including `display`, `bodyLg`, `micro`, `button`, `buttonSm`, `numXl`.
+- `src/design-system/tokens/spacing.ts` — Pixel-keyed (`4` through `48`) per design doc.
+- `src/design-system/tokens/radius.ts` — Semantic names (`card`, `hero`, `pill`, etc.) per design doc.
+- `src/design-system/tokens/shadows.ts` — `none`/`subtle`/`card`/`lifted`/`floating`/`glow` per design doc.
+- `src/models/currency.ts` — Mid-tier currency name unified to `fragments`; hard currency kept as `prime`; soft currency as `essence`.
+- `docs/private/design.md` — Color section restructured around primitives/colors file boundary, poetic primitives renamed to searchable names, semantic tokens promoted to primary section, `action.primary`/`action.primarySoft` added, variant tokens reframed as treatment metadata, stale component specs updated, Token Authoring Rules added.
+- `docs/private/PRD.md` — `Premium Currency` → `Prime`, `Pack Fragments` → `Fragments` throughout.
+
 ## [2026-05-11] — Rework: Mythic Tier, removed First-Pulls, updated patrol/pack — v0.1.2
 
 ### Added
