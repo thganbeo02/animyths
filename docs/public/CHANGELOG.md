@@ -4,6 +4,18 @@ All notable public-bound changes to AniMyths are documented here.
 
 This project follows Keep a Changelog formatting and uses pre-release `v0.x.y` versions until public release.
 
+## [2026-05-17] — Design System Foundation audit + Navigation Shell prep — v0.1.4
+
+### Added
+
+- Navigation Shell — Started the protected app layout and tab navigation scaffold, including app stack modal registrations and an Atlas placeholder screen.
+- Dependencies — Added `expo-font` for app-shell font loading.
+
+### Changed
+
+- Design System Foundation — Audited the token foundation, core UI primitive stubs, and shared component stubs. Confirmed token files are populated while several core primitives and shared components still need implementation before the navigation shell can compile cleanly.
+- Core UI Primitives — Started filling in `Text` and `Pressable` primitives as the first pieces of the shared UI layer.
+
 ## [2026-05-14] — Design System Foundation + Phase 03 — v0.1.3
 
 ### Added
